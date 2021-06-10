@@ -67,7 +67,7 @@ export default {
   },
   methods: {
     allMovies: function () {
-      axios.get("http://localhost:3000/movies").then((response) => {
+      axios.get("/movies").then((response) => {
         this.movies = response.data;
         console.log(response.data);
       });
@@ -81,7 +81,7 @@ export default {
         english: this.newEnglish,
       };
       axios
-        .post("http://localhost:3000/movies", params)
+        .post("/movies", params)
         .then((response) => {
           this.movies.push(response.data);
           console.log(response.data);
