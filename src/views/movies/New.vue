@@ -18,6 +18,11 @@
       <div class="form-group">
         <label>Plot:</label>
         <input type="text" class="form-control" v-model="newMovieParams.plot" />
+        <br />
+        <small v-if="newMovieParams.plot.length <= 255">{{ 255 - newMovieParams.plot.length }} characters left</small>
+        <small v-else-if="newMovieParams.plot.length > 255" class="text-red">
+          Too many characters! Movie will not save. Please remove {{ newMovieParams.plot.length - 255 }} characters.
+        </small>
       </div>
       <div class="form-group">
         <label>Director:</label>
@@ -32,12 +37,18 @@
   </div>
 </template>
 
+<style scoped>
+.text-red {
+  color: red;
+}
+</style>
+
 <script>
 import axios from "axios";
 
 export default {
   data: () => ({
-    newMovieParams: {},
+    newMovieParams: { plot: "" },
     errors: [],
   }),
   methods: {
