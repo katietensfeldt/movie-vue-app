@@ -8,28 +8,40 @@
         </li>
       </ul>
       <div class="form-group">
-        <label>First Name:</label>
-        <input type="text" class="form-control" v-model="editActorParams.first_name" />
+        <label>
+          First Name:
+          <input type="text" class="form-control" v-model="editActorParams.first_name" />
+        </label>
       </div>
       <div class="form-group">
-        <label>Last Name:</label>
-        <input type="text" class="form-control" v-model="editActorParams.last_name" />
+        <label>
+          Last Name:
+          <input type="text" class="form-control" v-model="editActorParams.last_name" />
+        </label>
       </div>
       <div class="form-group">
-        <label>Known For:</label>
-        <input type="text" class="form-control" v-model="editActorParams.known_for" />
+        <label>
+          Known For:
+          <input type="text" class="form-control" v-model="editActorParams.known_for" />
+        </label>
       </div>
       <div class="form-group">
-        <label>Gender:</label>
-        <input type="text" class="form-control" v-model="editActorParams.gender" />
+        <label>
+          Gender:
+          <input type="text" class="form-control" v-model="editActorParams.gender" />
+        </label>
       </div>
       <div class="form-group">
-        <label>Age:</label>
-        <input type="text" class="form-control" v-model="editActorParams.age" placeholder="True or false" />
+        <label>
+          Age:
+          <input type="text" class="form-control" v-model="editActorParams.age" placeholder="True or false" />
+        </label>
       </div>
       <div class="form-group">
-        <label>Movie Id:</label>
-        <input type="text" class="form-control" v-model="editActorParams.movie_id" />
+        <label>
+          Movie Id:
+          <input type="text" class="form-control" v-model="editActorParams.movie_id" />
+        </label>
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>

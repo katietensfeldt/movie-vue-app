@@ -9,15 +9,15 @@
       </ul>
       <div class="form-group">
         <label>Title:</label>
-        <input type="text" class="form-control" v-model="newMovieParams.title" />
+        <input type="text" required class="form-control" v-model="newMovieParams.title" />
       </div>
       <div class="form-group">
         <label>Year:</label>
-        <input type="text" class="form-control" v-model="newMovieParams.year" />
+        <input type="text" required class="form-control" v-model="newMovieParams.year" />
       </div>
       <div class="form-group">
         <label>Plot:</label>
-        <input type="text" class="form-control" v-model="newMovieParams.plot" />
+        <textarea class="form-control" v-model="newMovieParams.plot" />
         <br />
         <small v-if="newMovieParams.plot.length <= 255">{{ 255 - newMovieParams.plot.length }} characters left</small>
         <small v-else-if="newMovieParams.plot.length > 255" class="text-red">
@@ -30,7 +30,7 @@
       </div>
       <div class="form-group">
         <label>English:</label>
-        <input type="text" class="form-control" v-model="newMovieParams.english" placeholder="True or false" />
+        <input type="checkbox" class="form-control checkbox" checked />
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
@@ -53,6 +53,7 @@ export default {
   }),
   methods: {
     createMovie: function () {
+      this.newMovieParams.english = this.checked();
       axios
         .post("/movies", this.newMovieParams)
         .then((response) => {
@@ -63,6 +64,9 @@ export default {
           console.log(error.response.data.errors);
           this.errors = error.response.data.errors;
         });
+    },
+    checked: function () {
+      return document.querySelector(".checkbox").checked;
     },
   },
 };

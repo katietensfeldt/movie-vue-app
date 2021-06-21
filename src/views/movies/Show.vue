@@ -8,6 +8,7 @@
       <br />
       {{ movie.plot }}
     </p>
+    <p v-if="movie.english">Language: English</p>
     <router-link :to="`/movies/${movie.id}/edit`">Edit</router-link>
     |
     <button v-on:click="destroyMovie()">Delete</button>

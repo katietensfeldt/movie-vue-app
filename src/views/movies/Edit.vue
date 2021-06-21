@@ -1,7 +1,7 @@
 <template>
   <div class="movies-edit">
     <form v-on:submit.prevent="updateMovie()">
-      <h1>Signup</h1>
+      <h1>Edit Movie</h1>
       <ul>
         <li class="text-danger" v-for="error in errors" v-bind:key="error">
           {{ error }}
@@ -17,7 +17,7 @@
       </div>
       <div class="form-group">
         <label>Plot:</label>
-        <input type="text" class="form-control" v-model="editMovieParams.plot" />
+        <textarea class="form-control" v-model="editMovieParams.plot" />
       </div>
       <div class="form-group">
         <label>Director:</label>
@@ -25,7 +25,12 @@
       </div>
       <div class="form-group">
         <label>English:</label>
-        <input type="text" class="form-control" v-model="editMovieParams.english" placeholder="True or false" />
+        <input
+          type="checkbox"
+          class="form-control checkbox"
+          v-model="editMovieParams.english"
+          v-on:click="isChecked()"
+        />
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
@@ -58,6 +63,9 @@ export default {
           console.log(error.response.data.errors);
           this.errors = error.response.data.errors;
         });
+    },
+    isChecked: function () {
+      this.editMovieParams.english = document.querySelector(".checkbox").checked;
     },
   },
 };

@@ -8,28 +8,44 @@
         </li>
       </ul>
       <div class="form-group">
-        <label>First Name:</label>
-        <input type="text" class="form-control" v-model="newActorParams.first_name" />
+        <label>
+          First Name:
+          <input type="text" required class="form-control" v-model="newActorParams.first_name" />
+        </label>
       </div>
       <div class="form-group">
-        <label>Last Name:</label>
-        <input type="text" class="form-control" v-model="newActorParams.last_name" />
+        <label>
+          Last Name:
+          <input type="text" required class="form-control" v-model="newActorParams.last_name" />
+        </label>
       </div>
       <div class="form-group">
-        <label>Known For:</label>
-        <input type="text" class="form-control" v-model="newActorParams.known_for" />
+        <label>
+          Known For:
+          <input type="text" class="form-control" v-model="newActorParams.known_for" />
+        </label>
       </div>
       <div class="form-group">
-        <label>Gender:</label>
-        <input type="text" class="form-control" v-model="newActorParams.gender" />
+        <label>
+          Gender:
+          <select>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+            <option value="O">Other</option>
+          </select>
+        </label>
       </div>
       <div class="form-group">
-        <label>Age:</label>
-        <input type="text" class="form-control" v-model="newActorParams.age" placeholder="True or false" />
+        <label>
+          Age:
+          <input type="number" class="form-control" v-model="newActorParams.age" />
+        </label>
       </div>
       <div class="form-group">
-        <label>Movie Id:</label>
-        <input type="text" class="form-control" v-model="newActorParams.movie_id" />
+        <label>
+          Movie Id:
+          <input type="text" class="form-control" v-model="newActorParams.movie_id" />
+        </label>
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>
