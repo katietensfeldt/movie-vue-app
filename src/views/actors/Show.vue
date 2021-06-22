@@ -1,13 +1,17 @@
 <template>
   <div class="actors-show">
-    <h2>{{ actor.first_name }} {{ actor.last_name }}</h2>
-    <p>Age: {{ actor.age }}</p>
-    <p>Gender: {{ actor.gender }}</p>
-    <p>Known For: {{ actor.known_for }}</p>
-    <p>Also known for: {{ actor.movie.title }}, {{ actor.movie.year }}</p>
-    <router-link :to="`/actors/${actor.id}/edit`">Edit</router-link>
-    |
-    <button v-on:click="destroyActor()">Delete</button>
+    <div class="card mb-3">
+      <img :src="actor.image" class="card-img-top" alt="actor image" />
+      <div class="card-body">
+        <h5 class="card-title">{{ actor.full_name }}</h5>
+        <p class="card-text">{{ actor.full_name }} is {{ actor.age }}.</p>
+        <p class="card-text">They are most known for {{ actor.known_for }}, as well as {{ actor.movie.title }}</p>
+        <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+          <router-link :to="`/actors/${actor.id}/edit`" class="btn btn-warning">Edit</router-link>
+          <button v-on:click="destroyActor()" type="button" class="btn btn-danger">Delete</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 

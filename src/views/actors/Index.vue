@@ -3,12 +3,24 @@
     <h2>Actors</h2>
     Search for an Actor
     <input type="text" v-model="searchTerm" />
-    <div v-for="actor in filterBy(actors, searchTerm, 'full_name')" v-bind:key="actor.id">
-      <router-link :to="`/actors/${actor.id}`">
-        <h4>{{ actor.first_name }} {{ actor.last_name }}</h4>
-      </router-link>
-
-      <p>Gender: {{ actor.gender }} | Age: {{ actor.age }}</p>
+    <div
+      v-for="actor in filterBy(actors, searchTerm, 'full_name')"
+      v-bind:key="actor.id"
+      class="card mb-3"
+      style="max-width: 540px"
+    >
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img :src="actor.image" class="img-fluid rounded-start" alt="Actor image" />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">{{ actor.full_name }}</h5>
+            <p class="card-text">Age: {{ actor.age }} | Gender: {{ actor.gender }}</p>
+            <router-link :to="`/actors/${actor.id}`" type="button" class="btn btn-info">More Info</router-link>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

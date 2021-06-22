@@ -9,9 +9,9 @@
       {{ movie.plot }}
     </p>
     <p v-if="movie.english">Language: English</p>
-    <router-link :to="`/movies/${movie.id}/edit`">Edit</router-link>
+    <router-link :to="`/movies/${movie.id}/edit`" type="button" class="btn btn-lg btn-outline-info">Info</router-link>
     |
-    <button v-on:click="destroyMovie()">Delete</button>
+    <button v-on:click="destroyMovie()" type="button" class="btn btn-lg btn-outline-danger">Delete</button>
   </div>
 </template>
 

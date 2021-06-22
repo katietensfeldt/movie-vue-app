@@ -21,6 +21,12 @@
       </div>
       <div class="form-group">
         <label>
+          Image URL:
+          <input type="text" required class="form-control" v-model="newActorParams.image" />
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
           Known For:
           <input type="text" class="form-control" v-model="newActorParams.known_for" />
         </label>
